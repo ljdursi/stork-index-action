@@ -13,8 +13,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - "build"
-    - "--input"
     - ${{ inputs.input_toml }}
-    - "--output"
     - ${{ inputs.index_loc }}
