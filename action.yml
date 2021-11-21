@@ -1,0 +1,20 @@
+name: 'Generate stork index'
+description: "Generate a stork index for the repo given an index toml file"
+inputs:
+  input_toml:  
+    description: 'Manifest of files, in toml format, to index'
+    required: true
+    default: 'output.toml'
+  index_loc:  
+    description: 'Location of the output index'
+    required: true
+    default: 'assets/index/index.st'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - "build"
+    - "--input"
+    - ${{ inputs.input_toml }}
+    - "--output"
+    - ${{ inputs.index_loc }}
